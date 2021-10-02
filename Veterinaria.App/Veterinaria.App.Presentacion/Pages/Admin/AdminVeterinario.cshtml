@@ -36,10 +36,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        @foreach(Veterinario v in Model.listaVeterinarios ){
 
-                             <tr>
+                        @foreach (Veterinario v in Model.listaVeterinarios)
+                        {
+
+                            <tr>
                                 <th scope="row">1</th>
                                 <td>@v.Nombre</td>
                                 <td>@v.Correo</td>
@@ -140,7 +141,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregar()">Agregar</button>
                 </form>
 
             </div>
@@ -151,4 +152,21 @@
 
 
 
+
 </div>
+
+
+<script>
+
+    function agregar() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(xhttp.responseText);
+            }
+        };
+        xhttp.open("GET", "https://localhost:5005/WeatherForecast", true);
+        xhttp.send();
+    }
+
+</script>
