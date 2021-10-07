@@ -65,7 +65,7 @@ namespace Veterinaria.App.Persistencia{
         }
 
         public IEnumerable<Veterinario> GetVeterinarios(){
-            return null;
+            return this.appContext.Veterinarios;
         }
 
     }
