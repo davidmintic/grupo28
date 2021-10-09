@@ -40,11 +40,11 @@
                     </thead>
                     <tbody>
 
-                        @foreach (Veterinario v in Model.listaVeterinarios)
+                        @foreach (var v in Model.listaVeterinarios)
                         {
 
-                            <tr>
-                                <th scope="row">1</th>
+                            <tr>                                
+                                <td>@v.Id</td>
                                 <td>@v.Nombre</td>
                                 <td>@v.Correo</td>
                                 <td>@v.Telefono</td>
