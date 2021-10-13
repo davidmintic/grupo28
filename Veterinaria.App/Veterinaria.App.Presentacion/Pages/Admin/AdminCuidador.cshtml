@@ -1,7 +1,8 @@
 ﻿@page
-@model Veterinaria.App.Presentacion.Pages.AdminMascotaModel
+@model Veterinaria.App.Presentacion.Pages.AdminCuidadorModel
 @{
 }
+
 
 <h1 style="margin: 25px 0px; color: gray; font-size: 21px;">@Model.titulo</h1>
 
@@ -14,7 +15,7 @@
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseListaVeterinarios" aria-expanded="true"
                     aria-controls="collapseListaVeterinarios">
-                    Lista cuidadores
+                    Lista mascotas
                 </button>
             </h2>
         </div>
@@ -33,27 +34,31 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Raza</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Correo</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @if(Model.cuidadorActual.Mascotas != null)  {
-                            foreach (var v in Model.cuidadorActual.Mascotas)
+                        @if(Model.listaCuidadores != null)  {
+                            foreach (var v in Model.listaCuidadores)
                             {
 
                                 <tr>                                
                                     <td>@v.Id</td>
                                     <td>@v.Nombre</td>
-                                    <td>@v.Raza</td>
-
+                                    <td>@v.Correo</td>
+                                    <td>@v.Telefono</td>
                                     <td>      
 
                                         <div class="container">
                                             <div class="row" style="width: 220px;">
                                                 <div class="col-sm">
                                                     <a class="btn btn-primary bg-success" asp-page="/Admin/AdminCuidador" asp-route-id="@v.Id">Editar</a>    
+                                                </div>
+                                                <div class="col-sm">
+                                                    <a class="btn btn-primary bg-success" asp-page="/Admin/AdminMascota" asp-route-id="@v.Id">Ver mascotas</a>    
                                                 </div>
                                                 <div class="col-sm">
                                                 <form method="POST">
@@ -82,7 +87,7 @@
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseCrudVeterinario" aria-expanded="true" aria-controls="collapseCrudVeterinario">
-                    Información cuidador
+                    Información mascota
                 </button>
             </h2>
         </div>
